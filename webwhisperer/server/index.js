@@ -5,7 +5,8 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json());
+// app.use(express.json({ limit: '1mb' }));
 
 app.post("/scrape", async (req, res) => {
   const { url } = req.body;
@@ -21,7 +22,7 @@ app.post("/scrape", async (req, res) => {
 
 app.post("/summarize", async (req, res) => {
   const { html } = req.body;
-  const limitedHtml = html.slice(1000, 2000);
+  // const limitedHtml = html.slice(1000, 2000);
 
   try {
     const chatResponse = await axios.post(
@@ -35,7 +36,7 @@ app.post("/summarize", async (req, res) => {
           },
           {
             role: "user",
-            content: `Summarize the following HTML content:\n\n${limitedHtml}`
+            content: `Summarize the following HTML content:\n\n${html}`
           }
         ],
         temperature: 0.7

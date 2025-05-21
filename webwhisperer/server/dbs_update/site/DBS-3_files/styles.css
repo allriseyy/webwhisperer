@@ -1,0 +1,690 @@
+/* =====================================================================
+// Form framework
+// Created April 2010 - KJR - TechnoPhobia Ltd
+// Main screen styles
+===================================================================== */
+
+/*  Style sheet glossary
+// ---------------------------------------------------------------------
+
+--- Index ---
+=Globals
+=Forms
+=Buttons
+
+// -------------------------------------------------------------------*/
+
+/* ---------------------------------------------------------------------
+// =Globals
+--------------------------------------------------------------------- */
+	
+body {
+	font: normal .75em/1.5 Verdana, Geneva, Tahoma, sans-serif;
+	text-align: left;
+	color: #333;
+	background: white;
+	}
+	
+/* Resets
+--------------------------------------------------------------------- */
+	
+* {margin: 0; border: none; padding: 0;}
+/* hr {display: none;} */
+acronym, abbr {border-bottom: 1px dotted; cursor: help;}
+acronym:not([title]), abbr:not([title]) {text-decoration: none; cursor: default; border-bottom: none;}
+ul, ol {list-style: none;}
+dfn {font-style: normal; cursor: help;}
+	
+/* Cleafixes
+--------------------------------------------------------------------- */
+	
+.clearfix:after,
+div.form-block:after {display: block; clear: both; height: 0; content: "\2003";}
+	
+/* Links
+/* ------------------------------------------------------------------ */
+	
+a:link, a:visited {
+	font-weight: normal;
+	color: #0066cc;
+	}
+	
+h1 a, h2 a, h3 a,
+h4 a, h5 a, h6 a {font-weight: inherit;}
+	
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}
+a:focus {text-decoration: none;}
+	
+/* Typography
+--------------------------------------------------------------------- */
+	
+/* headings */
+h1 {font: normal 1em/1.5 "DIN Medium", "Trebuchet MS", Trebuchet, Tahoma, sans-serif; color: #333;}
+h2, h3, h4, h5, h6 {font: bold 1em/1.5 "DIN Medium", "Trebuchet MS", Trebuchet, Tahoma, sans-serif; color: #666;}
+h2 {color: #222;}
+h1, h2 {font-size: 2em; line-height: 1.333;} /* 24px */
+h3 {font-size: 1.5em; line-height: 1.333; margin: .667em 0;} /* 18px */
+h4 {font-size: 1.333em; line-height: 1.25; margin: 0 0 1em;} /* 16px */
+h5 {font-size: 1.167em; line-height: 1.286; margin: 0 0 1.286em 0;} /* 14px */
+h6 {font-size: 1em; line-height: 1.5;	margin: 0 0 1.5em 0; } /* 12px */
+
+small {font-size: 0.833em; line-height: 1em;} /* 10px */
+
+.formatting h1,
+.formatting h2,
+.formatting h3,
+.formatting h4,
+.formatting h5,
+.formatting h6 {margin-top: 0;}
+
+/*.formatting p {margin-bottom: 1.5em;}
+.formatting p {margin-bottom: 10px;}*/
+	
+.formatting a {text-decoration: none; color: #0066cc;}
+.formatting a:hover {text-decoration: underline;}
+.formatting a:focus {text-decoration: none;}
+
+ul.formatting {
+	margin-bottom: 1em;
+	}
+
+.formatting li {
+	margin-left: 1.3em;
+	line-height: 1.75em;
+	list-style: square;
+	}
+
+.indented-list {
+	list-style-position: outside;
+	list-style-type: disc;
+	margin-left: 30px;
+	margin-bottom: 15px;
+	font-weight: normal;
+}
+
+.flush-numbered-list {
+	list-style-position: inside;
+	list-style-type: decimal;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+/* General styles
+--------------------------------------------------------------------- */
+	
+.clear {display: block;	clear: both;}
+.hide-1 {display: none;} /* For legends and any element you want to hide on the page - doesn't work with table cells and not good if you need screenreaders to read the content */
+.hide-2 {position: absolute; left: -1000em;} /* To remove elements off-screen and remove their effect on other elements in the document - doesn't work with table cells */
+.hide-3 {text-indent: -1000em;} /* To hide text in a table cell - still read by screen readers */
+.hide-4 {visibility: hidden;} /* To hide an element and its contents but still hold its structure on the page */
+.hide-5 {visibility: hidden; text-indent: -1000em;} /* To hide an element and its contents but still have its structure have a partial effect on its surrounding elements */
+	
+div.extras {
+	overflow: hidden;
+	border: solid #eee;
+	border-width: 1px 0;
+	padding: 9px 10px;
+	background: #f3f3f3;
+	}
+	
+.centre {text-align: center;}
+.float-right {float: right;}
+.float-left {float: left;}
+.relative {position: relative;}
+	
+/* General images */
+.image-left {float: left;}
+.image-right {float: right;}
+#sidebar img {
+	padding: 20px 0px 20px 0px;
+}
+
+.ui-dialog .ui-dialog-content {
+	padding-bottom: 21px;
+	}
+
+.alert ul ul {
+	list-style: disc;
+	margin-left: 17px;
+	margin-bottom: 15px;
+}
+
+.table-grid {
+	border: 1px solid black;
+}
+
+	
+/* ---------------------------------------------------------------------
+// =Structural
+--------------------------------------------------------------------- */
+	
+#page {
+	position: relative;
+	margin: 0px 0px;
+	border: 1px solid #ededed;
+	padding: 0px;
+	width: 940px;
+	height: 100%;
+	}
+	
+/* ---------------------------------------------------------------------
+// =Forms
+--------------------------------------------------------------------- */
+
+/* Form block
+--------------------------------------------------------------------- */
+
+div.form-block {
+	display: block;
+	clear: both;
+	position: relative;
+	margin-bottom: 1em;
+	min-height: 40px;
+	}
+	
+div.form-block:last-child {margin: 0;}
+	
+/* Legends
+--------------------------------------------------------------------- */
+
+legend {
+	margin: 1em 0 .667em;
+	font: bold 1.5em/1.333 "DIN Medium", "Trebuchet MS", Trebuchet, Tahoma, sans-serif;
+	color: #666;
+	}
+	
+/* Input types
+--------------------------------------------------------------------- */
+
+textarea,
+select,
+input.text,
+input.postcode {
+	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px;
+	border: 1px solid #ccc;
+	padding: 1em;
+	-moz-box-shadow: inset 0 0 0px #666; -webkit-box-shadow: inset 0 0 0px #666; box-shadow: inset 0 0 0px #666;
+	width: 90%;
+	display: block;
+	}
+	
+input.text {
+	padding: .5em;
+	width: 300px;
+	}
+	
+	
+input.datepicker {
+	display: inline-block;
+	margin-right: 5px;
+	width: 100px;
+	}
+
+form.loginPageBlock span.input input.text.crscid {width: 120px;float:left;margin-right:20px;}
+form.stacked span.input input.text.short {width: 100px;}
+form.loginPageBlock span.input input.text.dateday {width: 30px;}
+form.loginPageBlock span.input input.text.datemonth {width: 30px;}
+form.loginPageBlock span.input input.text.dateyear {width: 60px;}
+
+form.stacked span.input input.text.dateday {width: 30px;}
+form.stacked span.input input.text.datemonth {width: 30px;}
+form.stacked span.input input.text.dateyear {width: 60px;}
+
+input.postcode {
+	margin-right: 51px;
+	padding: .5em;
+	width: 30%;
+	}
+	
+select {
+	padding: 0 0 0 5px;
+	width: 313px;
+	}
+	
+span.form-label,
+span.label {font-weight: bold;}
+label.label {font-weight: bold;}
+
+/* Radio button groups
+--------------------------------------------------------------------- */
+
+div.radio-group div.form-block {
+	clear: none;
+	float: left;
+	width: auto;
+	}
+
+div.radio-group label {
+	display: block;
+	clear: left;
+	}
+	
+div.radio-group label span.input{
+	margin: 4px 5px 0 10px;
+	width: auto;
+	}
+	
+div.radio-group label span.form-label {width: 200px;}
+	
+/* Checkbox groups
+--------------------------------------------------------------------- */
+
+div.checkbox-group span.form-label {width: auto;}
+	
+div.checkbox-group span.input {
+	margin-right: 5px;
+	width: auto;
+	}
+
+#hasAgreedTermsAndConditions, #agreeTerms {
+	float: left;
+	display: block;
+	margin: 4px 5px 5px 0;
+}
+
+/* Messages
+--------------------------------------------------------------------- */
+	
+
+
+div.form-block.error {
+	background: url(../graphics/cross.png) right 18px no-repeat;
+}
+
+div.form-block.outlined.error {
+	background: url(../graphics/cross.png) 230px -6px no-repeat
+}
+
+div.form-block.datefield.error {
+        background: url(../graphics/cross.png) right 44px no-repeat
+}
+
+div.form-block.privacy.error {
+        background: url(../graphics/cross.png) right -2px no-repeat
+}
+
+/* Success criteria */
+form div.success span.status {background-position: -8px -67px;}
+
+#changed-email-address, #changed-correspondence-address, #changed-mobile-phone-number {
+	position: relative;
+	float: right;
+	height: 20px;
+	width: 20px;
+	margin-right: -30px;
+	text-indent: -1000em;
+	background: url(../graphics/icons/tick-cross.png) no-repeat 0 0;
+}
+
+/* Error criteria */
+form div.error span.status {background-position: -8px -106px;}
+form div.error textarea,
+form div.error input.text,
+form div.error input.postcode,
+form div.error select {
+	border-color: #ef5a65;
+	-moz-box-shadow: inset 0 0 10px #ef5a65; -webkit-box-shadow: inset 0 0 10px #ef5a65; box-shadow: inset 0 0 10px #ef5a65;
+	float: none;
+	}
+	
+/* Stacked form
+--------------------------------------------------------------------- */
+
+form.stacked span.form-label {
+	display: block;
+	margin-bottom: .5em;
+	}
+	
+form.stacked span.input {display: block; clear: both;}
+form.stacked span.input input.text {width: 405px;}
+form.stacked select {width: 418px;}
+
+form.stacked div.error span.input input.text {width: 360px;}
+form.stacked div.error select {width: 373px;}
+form.stacked div.error span.input input.datepicker,
+form.stacked div.error span.input input.short {
+	width: 100px;
+	}
+
+form.stacked div.error span.input input.dateday {width: 30px;}
+form.stacked div.error span.input input.datemonth {width: 30px;}
+form.stacked div.error span.input input.dateyear {width: 60px;}
+
+form.stacked div.radio-group span.input {
+	display: block;
+	float: left;
+	}
+	
+form.stacked div.radio-group label span.input {margin: 0 5px 0 0;}
+
+/*form.stacked span.status {margin-left: -155px;}*/
+
+/* Left-aligned labels form
+--------------------------------------------------------------------- */
+
+form.left-aligned span.form-label {
+	display: block;
+	float: left;
+	padding-top: 4px;
+	width: 120px;
+	}
+	
+form.left-aligned span.input {
+	display: block;
+	float: left;
+	margin-left: 10px;
+	}
+	
+form.left-aligned span.input input {float: left;}
+	
+form.left-aligned span.status {top: -6px;}
+
+form.left-aligned div.radio-group div.form-block span.form-label {
+	padding: 0;
+	text-align: left;
+	}
+
+/* Right-aligned labels form
+--------------------------------------------------------------------- */
+
+form.right-aligned span.form-label {
+	display: block;
+	float: left;
+	padding-top: 4px;
+	width: 120px;
+	text-align: right;
+	}
+	
+form.right-aligned span.input {
+	display: block;
+	float: left;
+	margin-left: 10px;
+	}
+	
+form.right-aligned span.input input {float: left;}
+
+form.right-aligned span.status {top: -6px;}
+
+form.right-aligned div.radio-group div.form-block span.form-label {
+	padding: 0;
+	text-align: left;
+	}
+	
+/* Stacked form field inline overide
+--------------------------------------------------------------------- */
+
+form div.form-block.stacked span.form-label {
+	float: none;
+	padding: 0;
+	width: auto;
+	}
+	
+form div.form-block.stacked span.input {
+	float: none;
+	margin: 0;
+	}
+	
+form div.form-block.stacked span.input input.text {width: 430px;}
+form div.form-block.stacked span.input select {width: 443px;}
+
+/* Left-aligned form field inline overide
+--------------------------------------------------------------------- */
+	
+form div.form-block.left-aligned span.form-label {
+	float: left;
+	padding-top: 4px;
+	width: 120px;
+	}
+	
+form div.form-block.left-aligned span.input {
+	float: left;
+	margin-left: 10px;
+	}
+	
+form div.form-block.left-aligned span.status {
+	top: -6px;
+	margin-left: -31px;
+	}
+	
+form div.form-block.left-aligned span.input input.text {width: 300px;}
+form div.form-block.left-aligned span.input select {width: 313px;}
+
+.datediv {float:left; margin-right:10px;}
+
+/* Right-aligned form field inline overide
+--------------------------------------------------------------------- */
+	
+form div.form-block.right-aligned span.form-label {
+	float: left;
+	padding-top: 4px;
+	width: 120px;
+	text-align: right;
+	}
+	
+form div.form-block.right-aligned span.input {
+	float: left;
+	margin-left: 10px;
+	}
+	
+form div.form-block.right-aligned span.input input {float: left;}
+
+form div.form-block.right-aligned span.status {
+	top: -6px;
+	margin-left: -31px;
+	}
+	
+form div.form-block.right-aligned span.input input.text {width: 300px;}
+form div.form-block.right-aligned span.input select {width: 313px;}
+
+/* loginPageBlock
+	    	autoOpen: false,
+--------------------------------------------------------------------- */
+
+form.loginPageBlock div.form-block {
+	clear: none;
+	margin-right: 2em;
+	width: 100%;
+	}
+	
+form.loginPageBlock div.form-block.second {width: 28%;}
+	
+form.loginPageBlock div.form-block.third {width: 27%; margin-right: 0;}
+
+form.loginPageBlock div.form-block span.input {
+	display: block;
+	position: relative;
+	}
+	
+form.loginPageBlock div.form-block span.input input {width: 100%;}
+
+form.loginPageBlock div.form-block span.input input.datepicker {
+	width: 100px;
+	}
+	
+/* Firefox only fix for datepicker alignment */
+@-moz-document url-prefix() { 
+	form.loginPageBlock div.form-block span.input input.datepicker {
+		margin-top: 1px;
+	}
+}
+
+form.loginPageBlock div.form-block span.input img {
+	position: absolute;
+	top: 9px;
+	right: 12px;
+	cursor: pointer;
+	}
+	
+form.loginPageBlock div.form-block input.button {width: 120px; margin-top: 20px;}
+	
+/* ---------------------------------------------------------------------
+// =Buttons
+--------------------------------------------------------------------- */
+
+a:link.button,
+a:visited.button,
+input.button {
+	display: inline-block;
+	outline: none;
+	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+	border: 2px solid white;
+	padding: .3em 1.2em;
+	-moz-box-shadow: 0 0 3px #666; -webkit-box-shadow: 0 0 3px #666; box-shadow: 0 0 3px #666;
+	font: normal 1em/1.0 "DIN Medium", "Trebuchet MS", Trebuchet, Tahoma, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	background-color: #0066cc;
+	cursor: pointer;
+	}
+	
+a:hover.button,
+a:focus.button,
+a:active.button,
+input:hover.button,
+input:focus.button {
+	-moz-box-shadow: inset 2px 2px 0 rgba(0,0,0,0.2), 0 0 2px #666; -webkit-box-shadow: inset 2px 2px 0 rgba(0,0,0,0.2), 0 0 2px #666; box-shadow: inset 2px 2px 0 rgba(0,0,0,0.2), 0 0 2px #666;
+	background-image: color #0066cc;
+	}
+	
+input.button[disabled],
+input.button[disabled]:hover,
+input.button[disabled]:focus,
+input.submit[disabled] {
+	background-color: #ccc;
+	-moz-box-shadow: 0 0 3px #666; -webkit-box-shadow: 0 0 3px #666; box-shadow: 0 0 3px #666;
+	cursor: not-allowed;
+	}
+	
+input + button {float: right;}
+
+#cancelSubscription {
+	float: right;
+}
+
+/* inside table cell */
+td a.button,
+td input.button {margin: 1em 0 0;}
+
+/* Show all buttons */
+a.show-all:before {
+	content: "\25BC"; /* down-pointing triangle */
+	margin-right: .5em;
+	}
+	
+/* Positive highlight */
+.positive-highlight a:link.button,
+.positive-highlight a:visited.button,
+.positive-highlight input.button {background-image: url(../graphics/backgrounds/mid-green-split.gif);}
+
+.positive-highlight a:hover.button,
+.positive-highlight a:focus.button,
+.positive-highlight a:active.button,
+.positive-highlight input:hover.button,
+.positive-highlight input:focus.button {background-image: url(../graphics/backgrounds/dark-green-split.gif);}
+
+/* Secondary action */
+.secondary-action a:link.button,
+.secondary-action a:visited.button,
+.secondary-action input.button {color: black; background-image: url(../graphics/backgrounds/grey-blue-split.gif);}
+
+.secondary-action a:hover.button,
+.secondary-action a:focus.button,
+.secondary-action a:active.button,
+.secondary-action input:hover.button,
+.secondary-action input:focus.button {color: white; background-image: url(../graphics/backgrounds/dark-grey-blue-split.gif);}
+
+/* jQuery DataTables */
+
+#DataTables_Table_0_length {
+	float: left;
+	}
+	
+#DataTables_Table_0_filter {
+	float: right;
+	margin-top: -20px;
+	}
+	
+#DataTables_Table_0 tbody td:first-child {
+	background: #f5f5f5;
+	}
+
+.DataTables_sort_wrapper {
+	position: relative;
+	}
+
+#DataTables_Table_0 .ui-icon {
+	float: right;
+	position: absolute;
+	right: -4px;
+	top: 2px;
+	}
+
+/* For the manage page */
+	
+#manage:after {
+	clear: both;
+	height: 100%;
+	}
+
+.wide {
+	width: 50em;
+	margin-bottom: 2em;
+	}
+
+.print {
+	display:none;
+	}
+
+a.back {
+	display: none;
+	}
+
+a.print {
+	float:right;
+	}
+	
+
+#addApplicationForm input.datepicker {
+	margin-right: 5px;
+	width: 100px;
+	}
+	
+.tick {
+	float: right;
+	color: green;
+	display: none;
+	}
+	
+.dialog {
+	display: none;
+	}
+	
+a#useCertInstead, a#useApplicationInstead {
+	float: right;
+	}
+	
+input#jsSubmit {
+	display: none;
+	}
+
+img.popupImage {
+	clear: both;
+	}
+	
+div#confirmCancel {
+	display: none;
+	}
+	
+.jsOnlyPopupCancel {
+	display: none;
+	}
+
+.contact-details {
+	width: 25%;
+}
+
+.contact-details p {
+	word-wrap: break-word;
+}

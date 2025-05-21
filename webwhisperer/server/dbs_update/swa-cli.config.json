@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "dbs-update-service": {
+      "appLocation": ".",
+      "outputLocation": "site",
+      "appName": "screeningdbsupdate",
+      "resourceGroup": "DEV-Screening-SupplierPlatform"
+    }
+  }
+}
