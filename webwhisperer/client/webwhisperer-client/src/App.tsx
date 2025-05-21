@@ -26,30 +26,28 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow">
-        <h1 className="text-3xl font-bold mb-4">🌐 WebWhisperer</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-          <input
-            type="url"
-            className="border p-2 rounded"
-            placeholder="Enter a webpage URL"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            required
-          />
-          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            {loading ? "Processing..." : "Summarize Page"}
-          </button>
-        </form>
+    <div className="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow">
+      <h1 className="text-3xl font-bold mb-4">🌐 WebWhisperer</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+        <input
+          type="url"
+          className="border p-2 rounded"
+          placeholder="Enter a webpage URL"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          required
+        />
+        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          {loading ? "Processing..." : "Summarize Page"}
+        </button>
+      </form>
 
-        {summary && (
-          <div className="mt-6 bg-gray-100 p-4 rounded">
-            <h2 className="text-xl font-semibold mb-2" style={{ color: "black" }}>Summary:</h2>
-            <pre className="whitespace-pre-wrap" style={{ color: "black" }}>{summary}</pre>
-          </div>
-        )}
-      </div>
+      {summary && (
+        <div className="mt-6 bg-gray-100 p-4 rounded">
+          <h2 className="text-xl font-semibold mb-2" style={{ color: "black" }}>Summary:</h2>
+          <pre className="whitespace-pre-wrap" style={{ color: "black" }}>{summary}</pre>
+        </div>
+      )}
     </div>
   );
 }
