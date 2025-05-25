@@ -1,8 +1,9 @@
 # webwhisperer
 Web scrapping agentic AI with Chatgpt 4o
 
-## WSL
-Ubuntu 22.04
+# How to Setup
+1. install WSL
+
 
 ## npm
 10.0.2
@@ -21,10 +22,11 @@ Javascript
 .NET 9.0
 
 ## OS
-Linux
+Linux Ubuntu 22.04
 
 ## Platform
 Web App
 
 ## AI
 Chatgpt 4o
+OpenAI
